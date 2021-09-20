@@ -2,6 +2,18 @@
 
 ### lession1 技术栈
 
+衍生技术
+
+```React Native```
+```React VR```
+课程体系
+
+基础内容->环境搭建->基础语法->原理进阶->动画->Redux->Redux进阶
+
+实战项目->环境搭建->Header->首页->详情页->登录校验->上线流程
+
+技术栈
+
 - create-react-app
 -  组件化四维
 -  JSX
@@ -19,3 +31,6 @@
 -  Immutable.js
 -  redux-immutable
 -  axios
+```
+
+```
