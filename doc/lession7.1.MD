@@ -6,7 +6,7 @@
 
 解决：
 
-``` 
+``` react
 import React,{ Component } from 'react';
 import { View, ImageBackground, Text, StyleSheet } from 'react-native'
 import NavigationManager from 'NavigationManager'
