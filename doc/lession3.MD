@@ -28,11 +28,9 @@
 
 2.react入口文件放在 src/app.js
 
+三 源码文件目录架构 
 
-
-#### 三 源码文件目录架构 
-
-1.actions 存放react action路径
+1. actions 存放react action路径
 
 2. common 存放公共文件
 
@@ -42,9 +40,9 @@
 
 5. stores 存放 react action具体执行方法
 
-#### 四 其他的文件夹 
+四 其他的文件夹 
 
-1.api文件夹存放接口文件
+1. api文件夹存放接口文件
 
 2. style文件存放自定义的样式文件
 

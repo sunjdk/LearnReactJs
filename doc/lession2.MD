@@ -1,12 +1,6 @@
 ## reactjs 从基础到入门实战-简书项目
 
-### lession2 简介
-
-新的编程思想或编程方法 reactJs React Native  facebook 2013年开源  函数式编程
-
-官网：https://reactjs.org/docs/getting-started.html
-
-开发环境搭建
+### lession2 开发环境搭建
 
 1.引入.js文件来使用React
 
