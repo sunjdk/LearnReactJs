@@ -1,5 +1,6 @@
 import {React,Component} from "react";
 import { Fragment } from "react/cjs/react.production.min";
+import TodoItem from "./TodoItem";
 
 class TodoList extends Component{
   constructor(props){
@@ -8,17 +9,24 @@ class TodoList extends Component{
       inputValue:'',
       list:['学习 java','学习React','学习信息系统项目管理师']
     }
+    this.handleInput=this.handleInput.bind(this)
+    this.handleButton=this.handleButton.bind(this)
+    this.handleDel=this.handleDel.bind(this)
   }
 
   render(){
     return (
       <Fragment>
-        <input value={this.state.inputValue} onChange={this.handleInput.bind(this)}/> 
-        <button onClick={this.handleButton.bind(this)}>提交</button>
+        <label htmlFor="inputFocus">请输入内容</label>
+        <input id="inputFocus" value={this.state.inputValue} onChange={this.handleInput}/> 
+        <button onClick={this.handleButton}>提交</button>
         <ul>
           {
             this.state.list.map((item,index)=>{
-              return <li key={index} onClick={this.handleDel.bind(this,index)}>{item}</li>
+              // return <li key={index} onClick={this.handleDel.bind(this,index)} dangerouslySetInnerHTML={{__html:item}}></li>
+              return(
+                <TodoItem content={item} index={index} del={this.handleDel}/>
+              )
             })
           }
         </ul>
