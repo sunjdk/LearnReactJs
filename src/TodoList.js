@@ -22,35 +22,60 @@ class TodoList extends Component{
         <button onClick={this.handleButton}>提交</button>
         <ul>
           {
-            this.state.list.map((item,index)=>{
-              // return <li key={index} onClick={this.handleDel.bind(this,index)} dangerouslySetInnerHTML={{__html:item}}></li>
-              return(
-                <TodoItem content={item} index={index} del={this.handleDel}/>
-              )
-            })
+            this.getItem()
           }
         </ul>
       </Fragment>
     )
   }
+  getItem(){
+    return this.state.list.map((item,index)=>{
+      // return <li key={index} onClick={this.handleDel.bind(this,index)} dangerouslySetInnerHTML={{__html:item}}></li>
+      return(
+        <TodoItem key={index} content={item} index={index} del={this.handleDel}/>
+      )
+    })
+  }
   handleInput(e){
     // console.log(this)
-    this.setState({
-      inputValue:e.target.value
-    })
+    // this.setState({
+    //   inputValue:e.target.value
+    // })
+    // this.setState(()=>{
+    //   return{
+    //     inputValue:e.target.value
+    //   }
+    // })
+    const value=e.target.value
+    this.setState(()=>({inputValue:value}))
   }
   handleButton(){
-    this.setState({
-      list:[...this.state.list,this.state.inputValue],
+    // this.setState({
+    //   list:[...this.state.list,this.state.inputValue],
+    //   inputValue:''
+    // })
+    this.setState((prevState)=>({
+      list:[...prevState.list,prevState.inputValue],
       inputValue:''
-    })
+    }))
   }
   handleDel(index){
-    console.log(index);
-    const list=[...this.state.list]
-    list.splice(index,1)
-    this.setState({
-      list:list
+    // console.log(index);
+    // const list=[...this.state.list]
+    // list.splice(index,1)
+
+    // this.setState({
+    //   list:list
+    // })
+    // this.setState(()=>({
+    //   list
+    // }))
+
+
+    this.setState((prevState)=>{
+      const list=[...prevState.list]
+      list.splice(index,1)
+      return {list}
     })
   }
 }
