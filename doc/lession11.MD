@@ -1,6 +1,6 @@
 ## reactjs 从基础到入门实战-简书项目
 
-### 项目代码优化
+### lession 11 项目代码优化
 
 const {content}=this.props
 
