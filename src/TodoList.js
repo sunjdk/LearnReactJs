@@ -2,6 +2,7 @@ import {React,Component} from "react";
 import { Fragment } from "react/cjs/react.production.min";
 import TodoItem from "./TodoItem";
 import axios from 'axios'
+import App from "./App";
 
 class TodoList extends Component{
   constructor(props){
@@ -22,11 +23,9 @@ class TodoList extends Component{
     axios.get('/api/v1/learn/todolist').then((res)=>{
       console.log(res)
       const {data} = res.data
-      this.setState(()=>{
-        return{
-          list:data
-        }
-      })
+      this.setState(()=>({
+        list:[...data]
+      }))
     }).catch((res)=>{
       console.log(res);
     })
@@ -43,6 +42,7 @@ class TodoList extends Component{
             this.getItem()
           }
         </ul>
+        <App/>
       </Fragment>
     )
   }

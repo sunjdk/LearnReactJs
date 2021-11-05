@@ -1,25 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component, Fragment } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      isShow:true
+    }
+    this.toggle=this.toggle.bind(this)
+  }
+  render(){
+    return (
+      <Fragment>
+        <div className={this.state.isShow?"show":"hide"}>toggle</div>
+        <button onClick={this.toggle}>切换</button>
+      </Fragment>
+    )
+  }
+  toggle(){
+    this.setState(()=>({
+      isShow:this.state.isShow?false:true
+    }))
+  }
 }
 
 export default App;
