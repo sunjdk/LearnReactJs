@@ -1,6 +1,6 @@
 import './App.css';
 import { Component, Fragment } from 'react';
-
+import { CSSTransition } from 'react-transition-group'
 
 class App extends Component{
   constructor(props){
@@ -13,7 +13,15 @@ class App extends Component{
   render(){
     return (
       <Fragment>
-        <div className={this.state.isShow?"show":"hide"}>toggle</div>
+        <CSSTransition onEntered={(el)=>{el.style.color='blue'}} 
+        unmountOnExit 
+        classNames='fade' 
+        in={this.state.isShow} 
+        timeout={1000}
+        appear={true}
+        >
+          <div>toggle</div>
+        </CSSTransition>
         <button onClick={this.toggle}>切换</button>
       </Fragment>
     )
