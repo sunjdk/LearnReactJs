@@ -18,10 +18,20 @@ class TodoItem extends Component {
     const {del,index}=this.props
     del(index)
   }
+  //一个组件从父组件接收参数
+  // 当父组件的 render 函数被重新执行了，子组件的componWillReceiveProps 就会执行 componentWillReceiveProps
+  // 如果这个组件第一次存在于父组件中，不会执行
+  // 如果这个组件之前已经存在与父组件中，才会执行
+  componentWillReceiveProps(){
+    console.log('一个组件从父组件接收参数，当父组件的 render 函数被重新执行了，子组件的componWillReceiveProps 就会执行 componentWillReceiveProps')
+  }
+  componentWillUnmount(){
+    console.log('当一个组件将要从页面中被剔除的时候，就会执行 componentWillUnmout 函数');
+  }
 }
 
 TodoItem.propTypes ={
-  content:PropTypes.string,
+  content:PropTypes.oneOfType([PropTypes.number,PropTypes.string]),
   del:PropTypes.func,
   index:PropTypes.number
 }

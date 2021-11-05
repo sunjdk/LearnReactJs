@@ -13,8 +13,14 @@ class TodoList extends Component{
     this.handleButton=this.handleButton.bind(this)
     this.handleDel=this.handleDel.bind(this)
   }
-
+  componentWillMount(){
+    console.log('页面挂载时componentWillMount');
+  }
+  componentDidMount(){
+    console.log('页面挂载完成componentDidMount');
+  }
   render(){
+    console.log('render');
     return (
       <Fragment>
         <label htmlFor="inputFocus">请输入内容</label>
@@ -27,6 +33,19 @@ class TodoList extends Component{
         </ul>
       </Fragment>
     )
+  }
+  // 组建被更新之前会被自动执行
+  shouldComponentUpdate(){
+    console.log('shouldComponentUpdata');
+    return true
+  }
+  // 组建被更新之前，它会自动执行，但是他在 shouldComponentUpdate 之后
+  componentWillUpdate(){
+    console.log('组建被更新执行之前componentWillUpdate')
+  }
+  // 组建更新完成之后，会被执行
+  componentDidUpdate(){
+    console.log('组建已经更新完成了componentDidUpdate');
   }
   getItem(){
     return this.state.list.map((item,index)=>{
