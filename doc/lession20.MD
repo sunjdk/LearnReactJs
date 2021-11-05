@@ -8,7 +8,7 @@
 
                                                          props                     states          
 
-setup props and state      componentWillMout    componentWillReceiveProps  shouldComponentUpdate         componentWillUnMount       
+setup props and state      componentWillMount    componentWillReceiveProps  shouldComponentUpdate         componentWillUnMount       
                                   |                       |                     |       |
                                   |                       |                 true|       |false
                                 render           shouldComponentUpdate    componentWillUpdate

@@ -28,6 +28,15 @@ class TodoItem extends Component {
   componentWillUnmount(){
     console.log('当一个组件将要从页面中被剔除的时候，就会执行 componentWillUnmout 函数');
   }
+  // 提升 性能的方法
+  shouldComponentUpdate(nextProps,nextState){
+    // return false
+    if(nextProps.content!==this.props.content){
+      return true
+    }else{
+      return false
+    }
+  }
 }
 
 TodoItem.propTypes ={

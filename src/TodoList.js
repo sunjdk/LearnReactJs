@@ -1,6 +1,7 @@
 import {React,Component} from "react";
 import { Fragment } from "react/cjs/react.production.min";
 import TodoItem from "./TodoItem";
+import axios from 'axios'
 
 class TodoList extends Component{
   constructor(props){
@@ -17,7 +18,18 @@ class TodoList extends Component{
     console.log('页面挂载时componentWillMount');
   }
   componentDidMount(){
-    console.log('页面挂载完成componentDidMount');
+    // console.log('页面挂载完成componentDidMount');
+    axios.get('/api/v1/learn/todolist').then((res)=>{
+      console.log(res)
+      const {data} = res.data
+      this.setState(()=>{
+        return{
+          list:data
+        }
+      })
+    }).catch((res)=>{
+      console.log(res);
+    })
   }
   render(){
     console.log('render');
