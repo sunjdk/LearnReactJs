@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducer from './reducer';
+import reducer from './reducer';  //引入笔记本
 
 const store = createStore(
   reducer,

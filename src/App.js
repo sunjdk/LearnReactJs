@@ -27,9 +27,9 @@ class App extends Component{
     )
   }
   toggle(){
-    this.setState(()=>({
-      isShow:this.state.isShow?false:true
-    }))
+    // this.setState(()=>({
+    //   isShow:this.state.isShow?false:true
+    // }))
   }
 }
 
