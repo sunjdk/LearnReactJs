@@ -1,4 +1,6 @@
-## reactjs 从基础到入门实战-简书项目
+## reactjs 从基础到入门实战-简书项目-慕课网教程
+
+https://www.youtube.com/watch?v=ZXg4W7qm-uw&list=PL9nxfq1tlKKnza3MPogWqaYIPtdW_G2lF&index=2
 
 ### lession1 技术栈
 

@@ -15,4 +15,8 @@ npm install antd --save
 import { Button, DatePicker, version } from "antd";
 import "antd/dist/antd.css";
 
+
+
 <DatePicker />
+
+<Button type="primary">提交</Button>
