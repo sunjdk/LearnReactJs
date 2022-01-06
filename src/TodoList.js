@@ -3,7 +3,7 @@ import {React,Component} from "react";
 import 'antd/dist/antd.css';
 
 import store from "./store";
-import {getInputChangeAction,getAddItemAction,getDeleteItemAction ,getTodoList} from "./store/actionCreators"
+import {getInputChangeAction,getAddItemAction,getDeleteItemAction ,  getInitListAction} from "./store/actionCreators"
 // import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from "./store/actionTypes"
 import TodoListUI from './TodoListUI';
 
@@ -34,7 +34,8 @@ class TodoList extends Component{
   }
   // 生命周期函数 组件挂载完成之后执行
   componentDidMount(){
-    const action=getTodoList();
+    
+    const action=getInitListAction();
     // console.log(action);
     store.dispatch(action)
   }
