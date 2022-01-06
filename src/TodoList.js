@@ -3,9 +3,11 @@ import {React,Component} from "react";
 import 'antd/dist/antd.css';
 
 import store from "./store";
-import {getInputChangeAction,getAddItemAction,getDeleteItemAction} from "./store/actionCreators"
+import {getInputChangeAction,getAddItemAction,getDeleteItemAction, initListAction} from "./store/actionCreators"
 // import {CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM} from "./store/actionTypes"
 import TodoListUI from './TodoListUI';
+import axios from "axios";
+
 
 class TodoList extends Component{
   constructor(props){
@@ -30,6 +32,18 @@ class TodoList extends Component{
         handleItemDelete={this.handleItemDelete}
       />
     )
+  }
+  // 生命周期函数 组件挂载完成之后执行
+  componentDidMount(){
+    axios.get('/List.json').then((res)=>{
+      console.log(res);
+      const data=res.data
+      const action=initListAction(data)
+      // console.log(action)
+      store.dispatch(action)
+    }).catch(function(e1){
+      console.log(e1);
+    })
   }
   
   handleInputChange(e){
