@@ -9,6 +9,7 @@
 redux-thunk 中间件的代码仓库地址：https://github.com/reduxjs/redux-thunk
 文档地址：https://redux.js.org/usage/writing-logic-thunks
 
+redux 文档地址：https://redux.js.org/tutorials/quick-start
 
 安装命令 yarn add redux-thunk
 
