@@ -1,19 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-// import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
 import TodoList from './TodoList';
-
-ReactDOM.render(
-  <React.StrictMode>
-    {/* <App /> */}
+import store from './store';
+const App=(
+  // provider 是把 redux 的 store 存储挂载到被它包裹的所有组件上
+  <Provider store={store}>
     <TodoList/>
-  </React.StrictMode>,
+  </Provider>
+)
+ReactDOM.render(
+  App,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
