@@ -1,37 +1,35 @@
-import { Component } from "react";
 import { connect } from "react-redux";
 // import store from "./store";
 
-class TodoList extends Component{
-  // constructor(props){
-  //   super(props);
-  //   this.state=store.getState()
-  // }
-  render(){
-    return(
-      <div>
-        <div>
-          <input value={this.props.inputValue} onChange={this.props.changeInputValue.bind(this)}/>
-          <button onClick={this.handleClick.bind(this)}>提交</button>
-        </div>
-        <ul>
-          <li>Dell</li>
-        </ul>
-      </div>
-    )
-  }
 
-  handleInputChange(e){
-    console.log(e.target.value);
-  }
-  handleClick(e){
-    console.log(e);
-  }
+
+// 将todulist ui 部分提取出来作为无状态组件
+
+const TodoList=(props)=>{
+  const {inputValue,changeInputValue,handleClick,list,handleDelete}=props;
+  return(    
+    <div>
+      <div>
+        <input value={inputValue} onChange={changeInputValue.bind(this)}/>
+        <button onClick={handleClick}>提交</button>
+      </div>
+      <ul>
+        {
+          list.map((item,index)=>{
+            return <li onClick={handleDelete} key={index}>{item}</li>
+          })
+        }
+      </ul>
+    </div>
+  )
 }
+
+
 // 第一种连接方式：
 const mapStateToProps=(state)=>{
   return {
-    inputValue:state.inputValue
+    inputValue:state.inputValue,
+    list:state.list
   }
 }
 const mapDispatchToProps=(dispatch)=>{
@@ -43,6 +41,22 @@ const mapDispatchToProps=(dispatch)=>{
         value:e.target.value
       }
       dispatch(action) 
+    },
+
+    handleClick(){
+      console.log(1543);
+      const action={
+        type:'add_item'
+      }
+      dispatch(action)
+    },
+
+    handleDelete(index){
+      const action={
+        type:'delete_item',
+        index,
+      }
+      dispatch(action)
     }
   }
 }
